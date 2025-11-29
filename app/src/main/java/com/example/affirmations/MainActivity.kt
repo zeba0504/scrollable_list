@@ -24,6 +24,16 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.affirmations.ui.theme.AffirmationsTheme
+import com.example.affirmations.model.Affirmation
+import androidx.compose.material3.Card
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.layout.ContentScale
 
 class MainActivity : ComponentActivity() {
 
@@ -44,5 +54,26 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+fun AffirmationCard(affirmation: Affirmation) {
+
+}
+
+@Composable
 fun AffirmationsApp() {
+}
+
+@Composable
+fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
+    Card(modifier = modifier) {
+        Column {
+            Image(
+                painter = painterResource(affirmation.imageResourceId),
+                contentDescription = stringResource(affirmation.stringResourceId),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(194.dp),
+                contentScale = ContentScale.Crop
+            )
+        }
+    }
 }
